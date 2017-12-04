@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <body>
+
+    <h1>My first SVG</h1>
+    <svg width="1000" height="1000">
+      <% @circles.each do |circle| %>
+        <circle cx="<%= circle.x %>" cy="<%= circle.y %>" r="<%= circle.radius %>" stroke="<%= circle.stroke %>" stroke-width="<%= circle.stroke_width %>" fill="<%= circle.fill %>"/>
+      <% end %>
+    </svg>
+  </body>
+</html>
