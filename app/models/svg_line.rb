@@ -1,36 +1,22 @@
-class SvgCircle
-  attr_reader :x,
-              :y,
-              :radius,
+class SvgLine
+  attr_reader :x1,
+              :x2,
+              :y1,
+              :y2,
               :stroke,
               :stroke_width,
               :fill,
-              :opacity,
-              :animation_attr,
-              :animation_from,
-              :animation_to,
-              :animation_dur,
-              :animation_repeat,
               :animated
 
   def initialize
-    @x = rand(1..1000)
-    @y = rand(1..1000)
-    @radius = rand(1..400)
+    @x1 = rand(1..1000)
+    @x2 = rand(1..1000)
+    @y1 = rand(1..1000)
+    @y2 = rand(1..1000)
     @stroke = colors.sample
-    @stroke_width = rand(1..5)
+    @stroke_width = rand(1..20)
     @fill = colors.sample
-    @opacity = rand(0.01..1)
-    @animation_attr = attributes.sample
-    @animation_from = rand(1..500)
-    @animation_to = rand(500..1000)
-    @animation_dur = rand(1..50)
-    @animation_repeat = rand(1..120)
-    @animated = false # [true, false].sample
-  end
-
-  def attributes
-    ['cx', 'cy', 'cr']
+    @animated = [true, false].sample
   end
 
   def colors

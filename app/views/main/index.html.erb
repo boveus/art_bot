@@ -3,9 +3,20 @@
   <body>
 
     <h1>My first SVG</h1>
-    <svg width="1000" height="1000">
+    <svg width="1500" height="1500">
       <% @circles.each do |circle| %>
-        <circle cx="<%= circle.x %>" cy="<%= circle.y %>" r="<%= circle.radius %>" stroke="<%= circle.stroke %>" stroke-width="<%= circle.stroke_width %>" fill="<%= circle.fill %>"/>
+        <circle cx="<%= circle.x %>" cy="<%= circle.y %>" r="<%= circle.radius %>" stroke="<%= circle.stroke %>" stroke-width="<%= circle.stroke_width %>" fill="<%= circle.fill %>" opacity="<%= circle.opacity %>">
+          <% if circle.animated %>
+            <animate attributetype="XML" attributename="<%= circle.animation_attr %>" from="<%= circle.animation_from %>" to="<%= circle.animation_to %>" dur="<%= circle.animation_dur %>" repeatcount="indefinite"/>
+          <% end %>
+        </circle>
+      <% end %>
+      <% @rectangles.each do |rectangle| %>
+        <rect x="<%= rectangle.x %>" y="<%= rectangle.y %>" width="<%= rectangle.width %>" height="<%= rectangle.height %>" fill="<%= rectangle.fill %>" opacity="<%= rectangle.opacity %>">
+          <% if rectangle.animated %>
+            <animate attributetype="XML" attributename="<%= rectangle.animation_attr %>" from="<%= rectangle.animation_from %>" to="<%= rectangle.animation_to %>" dur="<%= rectangle.animation_dur %>" repeatcount="indefinite"/>
+          <% end %>
+        </rect>
       <% end %>
     </svg>
   </body>
